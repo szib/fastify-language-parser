@@ -13,7 +13,7 @@ declare const fastifyLP: fastify.Plugin<
   {
     cookieDecorator: string;
     cookieKey: string;
-    order: order;
+    order: order[];
     headerDecorator: string;
     headerKey: string;
     fallbackLng: string;
