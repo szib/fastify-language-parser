@@ -79,7 +79,7 @@ test('Parser', t => {
 
     testParser(t, 'header', { order: ['header'] }, null, '/', '/',
       { 'accept-language': 'de;q=0.9,fr;q=0.8' },
-      JSON.stringify([{ 'code': 'de', 'script': null, 'quality': 0.9 }, { 'code': 'fr', 'script': null, 'quality': 0.8 }]),
+      JSON.stringify([{ code: 'de', script: null, quality: 0.9 }, { code: 'fr', script: null, quality: 0.8 }]),
       'header | returns array of matched items sorted by q')
   })
 
@@ -156,7 +156,7 @@ test('Parser', t => {
     testParser(t, 'header', {
       order: ['header'], headerDecorator: 'foo', headerKey: 'bar'
     }, 'de;q=0.9,en;q=0.8', '/', '/', {},
-    JSON.stringify([{ 'code': 'de', 'script': null, 'quality': 0.9 }, { 'code': 'en', 'script': null, 'quality': 0.8 }]),
+    JSON.stringify([{ code: 'de', script: null, quality: 0.9 }, { code: 'en', script: null, quality: 0.8 }]),
     'header | returns array of matched items')
   })
 
@@ -181,7 +181,7 @@ test('Parser', t => {
 
     testParserOrder(t, {
       order: ['query', 'path', 'cookie', 'session', 'header']
-    }, '/prefix/it?lng=gr', JSON.stringify([{ 'code': 'pt', 'script': null, 'quality': 0.9 }, { 'code': 'sp', 'script': null, 'quality': 0.8 }]),
+    }, '/prefix/it?lng=gr', JSON.stringify([{ code: 'pt', script: null, quality: 0.9 }, { code: 'sp', script: null, quality: 0.8 }]),
     'last one is header')
   })
 })
